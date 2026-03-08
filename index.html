@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub issues Tracker</title>
+    <title>GitHub issues Tracker Login</title>
     <!-- logo -->
      <link rel="shortcut icon" href="Image/github-logo.png" type="./Image">
     <!-- font awesome cnd -->
@@ -28,7 +28,7 @@
         <!-- username -->
         <div class="text-left mb-3">
             <label class="font-medium ">Username</label>
-            <input class="w-full  p-2 rounded border border-gray-600/50" type="username" name="" id="username" placeholder="Enter username">
+            <input class="w-full  p-2 rounded border border-gray-600/50" type="text" name="" id="username" placeholder="Enter username">
             <p class="text-xs text-purple-600">
                 Default: admin
             </p>
@@ -40,11 +40,14 @@
             <p class="text-xs text-purple-600">
                 Default: admin123
             </p>
+        <p id="error-msg" class="text-red-500 text-sm mt-2 hidden">
+        Invalid Username or Password
+        </p>
         </div>
 
         <!-- button -->
-    <button onclick="login()"
-    class="w-full py-2 text-white rounded bg-gradient-to-r from-purple-600 to-indigo-600">
+    <button id="sign-in-button"
+    class="w-full py-2 text-white rounded bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90">
      Sign In
     </button>
         
@@ -58,13 +61,13 @@
     </div>
     
     <!-- login password -->
-    <div class="bg-gray-100 p-3 rounded text-sm">
+    <div class="bg-gray-200 shadow-sm p-3 rounded text-sm">
     <p><b>Username:</b> admin</p>
     <p><b>Password:</b> admin123</p>
     </div>
 
     </div>
     
-    <script src="script/script.js"></script>
+    <script src="script/sign-up.js"></script>
 </body>
 </html>
