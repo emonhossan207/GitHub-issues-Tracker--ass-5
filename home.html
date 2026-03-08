@@ -14,9 +14,41 @@
     <!-- Tailwind CSS & DaisyUI -->
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+      <link rel="stylesheet" href="style/style.css">
 
 </head>
-<body>
+<body class="bg-gray-100">
+    <!-- navbar left side-->
+
+    <nav class="sm:flex justify-between shadow-sm px-6 py-3 bg-white">
+        <div class="flex items-center gap-2">
+        <img class="w-11" src="Image/github-logo.png" alt="github icon">
+        <h1 class="text-2xl font-bold">GitHub Issues Tracker</h1>
+    </div>
+    <!-- navbar right side -->
+    <div class="flex gap-2">
+            <div>
+            <label class="input">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input id="search-input" type="search" required placeholder="Search Issue"/>
+  </label>
+        </div>
+        <button id="search-btn" class="btn btn-primary">+New Issue</button>
+        </div>
+        </nav>
+
+        <!-- main Body part -->
+         <main class="w-11/12 mx-auto mt-10">
+            <!-- Filter button -->
+            <section class="shadow-sm bg-gray-200 rounded-sm px-4 py-4 mb-5 flex gap-2">
+                <button oneClick="filterCard(this,'all')" class="filter-btn w-[100px] btn btn-primary">All</button>
+                <button oneClick="filterCard(this,'open')" class="filter-btn w-[100px]  btn btn-outline btn-primary">Open</button>
+                <button oneClick="filterCard(this,'closed')" class="filter-btn w-[100px]  btn btn-outline btn-primary">Closed</button>
+            </section>
+            <!-- card container -->
+             <section></section>
+         </main>
+    
     
 </body>
 </html>
