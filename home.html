@@ -86,16 +86,19 @@
 
     <!-- DaisyUI Modal -->
     <dialog id="issue-modal" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box max-w-lg">
-            <div id="modal-body" class="space-y-4">
-            </div>
-            <div class="modal-action">
-                <form method="dialog">
-                    <button class="btn btn-outline btn-primary">Close</button>
-                </form>
-            </div>
+    <div class="modal-box max-w-lg">
+        <div id="modal-body" class="space-y-4">
         </div>
-    </dialog>
+        <div class="modal-action">
+            <form method="dialog">
+                <button class="btn btn-outline btn-primary w-full sm:w-auto">Close</button>
+            </form>
+        </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
+</dialog>
 
     
 
