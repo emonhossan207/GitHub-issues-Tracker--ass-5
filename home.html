@@ -21,17 +21,17 @@
 
         <!-- NAVBAR -->
     <nav class="bg-white shadow-sm border-gray-200 ">
-        <div class="flex justify-between items-center px-6 py-3 gap-3">
+        <div class="flex flex-wrap justify-between items-center px-4 py-3 gap-3">
             <div class="flex items-center gap-4">
                <img class="w-12" src="Image/github-logo.png" alt="">
-                <h1 class="text-2xl font-bold text-[#1F2937]">GitHub Issues Tracker</h1>
+                <h1 class="text-lg sm:text-2xl font-bold text-[#1F2937]">GitHub Issues Tracker</h1>
             </div>
-            <div class="flex items-center gap-3 ">
+            <div class="flex items-center gap-2 w-full sm:w-auto ">
                 <label class="input input-bordered flex items-center gap-2 bg-white">
                     <i class="fa-solid fa-magnifying-glass text-gray-400 text-sm"></i>
-                    <input id="search-input" type="search" placeholder="Search issues..." class="grow" />
+                    <input id="search-input" type="search" placeholder="Search issues..." class="grow w-full sm:w-48" />
                 </label>
-                <button id="search-btn" class="btn btn-primary">+ New Issue</button>
+                <button id="search-btn" class="btn btn-primary btn-sm sm:btn-md whitespace-nowrap">+ New Issue</button>
                 
             </div>
         </div>
@@ -40,9 +40,9 @@
 
         <!-- Filter Buttons -->
         <section class="bg-white border border-gray-200 rounded-[8px] px-4 py-3 mb-5 flex gap-2">
-            <button onclick="filterCards(this,'all')" class="filter-btn btn w-18 btn-primary btn-sm">All</button>
-            <button onclick="filterCards(this,'open')" class="filter-btn btn w-18 btn-outline btn-primary btn-sm">Open</button>
-            <button onclick="filterCards(this,'closed')" class="filter-btn btn btn-outline btn-primary w-18 btn-sm">Closed</button>
+        <button onclick="filterCards(this,'all')" class="filter-btn btn btn-primary btn-sm flex-1 sm:flex-none sm:w-18">All</button>
+        <button onclick="filterCards(this,'open')" class="filter-btn btn btn-outline btn-primary btn-sm flex-1 sm:flex-none sm:w-18">Open</button>
+        <button onclick="filterCards(this,'closed')" class="filter-btn btn btn-outline btn-primary btn-sm flex-1 sm:flex-none sm:w-18">Closed</button>
         </section>
 
         <!-- Stats Bar -->
@@ -79,7 +79,7 @@
         </div>
 
         <!-- Card Container -->
-        <section id="card-containar" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <section id="card-containar" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         </section>
 
     </main>
@@ -91,18 +91,14 @@
             </div>
             <div class="modal-action">
                 <form method="dialog">
-                    <button class="btn btn-primary">Close</button>
+                    <button class="btn btn-outline btn-primary">Close</button>
                 </form>
             </div>
         </div>
-        <form method="dialog" class="modal-backdrop">
-            <button>close</button>
-        </form>
     </dialog>
 
-    <script src="script/script.js"></script>
-
-
     
+
+     <script src="script/script.js"></script>
 </body>
 </html>

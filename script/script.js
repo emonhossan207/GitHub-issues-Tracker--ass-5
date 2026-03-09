@@ -44,7 +44,7 @@
         if (!cards || cards.length === 0) {
             parentDiv.innerHTML = `
                 <div class="col-span-full text-center py-16 text-gray-400">
-                    <i class="fa-solid fa-inbox text-5xl block mb-3"></i>
+                    <i class="fa-solid fa-inbox text-6xl block mb-3"></i>
                     <p class="text-base font-medium">No issues found</p>
                 </div>`;
             document.getElementById("card-count").innerText = 0;
@@ -91,30 +91,28 @@
 
         document.getElementById("issue-modal").showModal();
 
-        fetch(`${API}/issue/${id}`)
-            .then(res => {
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                return res.json();
-            })
-            .then(data => {
-                if (!data || !data.data) throw new Error("data.data is empty");
-                modalinfoDisplay(data.data);
-            })
-            .catch(err => {
-                console.error("Modal fetch error:", err);
-                document.getElementById("modal-body").innerHTML = `
-                    <p class="text-red-500 text-center py-6">
-                        <i class="fa-solid fa-circle-exclamation mr-2"></i>
-                        Error: ${err.message}
-                    </p>`;
-            });
-    };
+
+    const card = allIssues.find(issue => issue.id === id);
+
+        if (!card) {
+            document.getElementById("modal-body").innerHTML = `
+                <p class="text-red-500 text-center py-6">
+                    <i class="fa-solid fa-circle-exclamation mr-2"></i>
+                    Issue not found
+                </p>`;
+            document.getElementById("issue-modal").showModal();
+            return;
+        }
+
+        document.getElementById("issue-modal").showModal();
+        modalinfoDisplay(card);
+};
 
 
     const modalinfoDisplay = (details) => {
         document.getElementById("modal-body").innerHTML = `
             <div class="space-y-2">
-                <h2 class="text-2xl font-semibold text-gray-900">${details.title}</h2>
+                <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 leading-snug">${details.title}</h2>
                 <div class="flex flex-wrap gap-2 items-center">
                     ${statusText(details)}
                     <p class="text-gray-500 text-sm flex items-center gap-1">
@@ -159,7 +157,7 @@
         if (card.status === "open") {
             return `<img src="Image/Open-Status.png" alt="open" class="w-6 h-6" />`;
         }
-        return `<img src="Image/Closed- Status .png" alt="closed" class="w-6 h-6" />`;
+        return `<img src="Image/Closed-Status.png" alt="closed" class="w-6 h-6" />`;
     };
 
     const statusText = (card) => {
@@ -184,13 +182,21 @@
         return labels.map(label => {
             const l = label.toLowerCase();
             if (l === "bug") {
-                return `<span class="badge badge-error badge-outline rounded-full font-bold text-[10px] gap-1"><i class="fa-solid fa-bug"></i>BUG</span>`;
+                return `<span style="background:#FEE2E2; color:#EF4444; border:1.5px solid #FCA5A5;" class="badge rounded-full font-bold text-[10px] gap-1">
+                        <i class="fa-solid fa-bug"></i>BUG
+                    </span>`;
             } else if (l === "help wanted") {
-                return `<span class="badge badge-warning badge-outline rounded-full font-bold text-[10px] gap-1"><i class="fa-solid fa-hand-holding-heart"></i>HELP WANTED</span>`;
+                return `<span style="background:#FEF9C3; color:#EAB308; border:1.5px solid #FDE047;" class="badge rounded-full font-bold text-[10px] gap-1">
+                        <img src="image/Lifebuoy.png" alt=""></i>HELP WANTED
+                    </span>`;
             } else if (l === "enhancement") {
-                return `<span class="badge badge-success badge-outline rounded-full font-bold text-[10px] gap-1"><i class="fa-solid fa-star"></i>ENHANCEMENT</span>`;
+                return  `<span style="background:#DCFCE7; color:#22C55E; border:1.5px solid #86EFAC;" class="badge rounded-full font-bold text-[10px] gap-1">
+                        <img src="image/Sparkle.png" alt=""></i>ENHANCEMENT
+                    </span>`;
             } else if (l === "documentation") {
-                return `<span class="badge badge-info badge-outline rounded-full font-bold text-[10px] gap-1"><i class="fa-solid fa-book"></i>DOCUMENTATION</span>`;
+                return `<span style="background:#DBEAFE; color:#3B82F6; border:1.5px solid #93C5FD;" class="badge rounded-full font-bold text-[10px] gap-1">
+                        <i class="fa-solid fa-book"></i>DOCUMENTATION
+                    </span>`;
             } else {
                 return "";
             }
