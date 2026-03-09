@@ -54,25 +54,25 @@
         cards.forEach(card => {
             const childDiv = document.createElement("div");
             childDiv.innerHTML = `
-                <div class="bg-white border border-gray-200 rounded-xl overflow-hidden cursor-pointer hover:shadow-lg hover:-translate-y-1 transition-all duration-200 flex flex-col h-full">
-                    <div class="h-1.5 w-full" style="background:${topBarColor(card.status)};"></div>
-                    <div class="flex justify-between items-center p-3">
-                        <div>${statusIcon(card)}</div>
-                        <div>${statusBadge(card)}</div>
-                    </div>
-                    <div class="px-3 pb-2 flex-1">
-                        <h2 class="text-sm font-bold text-gray-900 mb-1">${card.title}</h2>
-                        <p class="line-clamp-2 text-gray-500 text-xs">${card.description}</p>
-                    </div>
-                    <div class="px-3 pb-3 flex flex-wrap gap-1">
-                        ${labelsShow(card.labels)}
-                    </div>
-                    <hr class="border-gray-100">
-                    <div class="p-3">
-                        <p class="text-gray-400 text-xs">#${card.id} by ${card.assignee}</p>
-                        <p class="text-gray-400 text-xs">${formatDate(card.createdAt)}</p>
-                    </div>
-                </div>`;
+        <div class="bg-white border border-gray-200 rounded-lg overflow-hidden cursor-pointer hover:shadow-md hover:-translate-y-1 transition-all duration-200 flex flex-col h-full">
+            <div class="h-1 w-full" style="background:${topBarColor(card.status)};"></div>
+            <div class="flex justify-between items-center px-2.5 pt-2 pb-1">
+                <div>${statusIcon(card)}</div>
+                <div>${statusBadge(card)}</div>
+            </div>
+            <div class="px-2.5 pb-1.5 flex-1">
+                <h2 class="text-xs font-bold text-gray-900 mb-0.5 line-clamp-1">${card.title}</h2>
+                <p class="line-clamp-2 text-gray-500 text-[11px]">${card.description}</p>
+            </div>
+            <div class="px-2.5 pb-2 flex flex-wrap gap-1">
+                ${labelsShow(card.labels)}
+            </div>
+            <hr class="border-gray-100">
+            <div class="px-2.5 py-2">
+                <p class="text-gray-400 text-[10px]">#${card.id} by ${card.assignee}</p>
+                <p class="text-gray-400 text-[10px]">${formatDate(card.createdAt)}</p>
+            </div>
+        </div>`;
 
             childDiv.addEventListener("click", () => showIssueDeteils(card.id));
             parentDiv.appendChild(childDiv);
