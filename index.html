@@ -17,58 +17,57 @@
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
       <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+       <style>
+        body { font-family: 'Geist', sans-serif; }
+    </style>
+
 
 </head>
-<body class="bg-gray-200 flex items-center justify-center h-screen">
+<body class="flex items-center justify-center h-screen bg-gray-200 ">
 
-    <div class="bg-white w-[380px] p-8 rounded-xl shadow-lg text-center">
+   <div class="bg-white w-[380px] p-8 rounded-xl shadow-lg text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
 
         <img class="w-16 mx-auto mb-5" src="Image/github-logo.png" alt="">
-        <h1 class="text-[24px] font-bold text-[#1F2937] ">Github Issues Tracker</h1>
-        
+        <h1 class="text-[24px] font-bold text-[#1F2937]">Github Issues Tracker</h1>
+
         <!-- username -->
-        <div class="text-left mb-3">
-            <label class="font-medium ">Username</label>
-            <input class="w-full  p-2 rounded border border-gray-600/50" type="text" name="" id="username" placeholder="Enter username">
-            <p class="text-xs text-purple-600">
-                Default: admin
-            </p>
-            <!-- password -->
+        <div class="text-left mb-3 mt-5">
+            <label class="font-medium">Username</label>
+            <input class="w-full mt-1 p-2 rounded border border-gray-300 outline-none transition-all duration-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200" type="text" id="username" placeholder="Enter username">
+            <p class="text-xs text-purple-600 mt-1">Default: admin</p>
         </div>
+
+        <!-- password -->
         <div class="text-left mb-4">
             <label class="font-medium">Password</label>
-            <input class="w-full  p-2 rounded border border-gray-600/50" type="password" name="" id="password" placeholder="Enter Password">
-            <p class="text-xs text-purple-600">
-                Default: admin123
+            <input class="w-full mt-1 p-2 rounded border border-gray-300 outline-none transition-all duration-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200" type="password" id="password" placeholder="Enter Password">
+            <p class="text-xs text-purple-600 mt-1">Default: admin123</p>
+            <p id="error-msg" class="text-red-500 text-sm mt-2 hidden">
+                Invalid Username or Password
             </p>
-        <p id="error-msg" class="text-red-500 text-sm mt-2 hidden">
-        Invalid Username or Password
-        </p>
         </div>
 
         <!-- button -->
-    <button id="sign-in-button"
-    class="w-full py-2 text-white rounded bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90">
-     Sign In
-    </button>
-        
-    
+        <button id="sign-in-button"
+            class="w-full py-2 text-white rounded bg-gradient-to-r from-purple-600 to-indigo-600 transition-all duration-200 hover:from-purple-700 hover:to-indigo-700 hover:shadow-lg hover:shadow-purple-200 active:scale-95">
+            Sign In
+        </button>
 
-    <!-- or -->
-    <div class="flex items-center mb-4 mt-4">
-    <div class="flex-1 border-t border-gray-500/50"></div>
-    <span class="px-4 text-gray-400">OR</span>
-    <div class="flex-1 border-t border-gray-500/50 mb"></div>
-    </div>
-    
-    <!-- login password -->
-    <div class="bg-gray-200 shadow-sm p-3 rounded text-sm">
-    <p><b>Username:</b> admin</p>
-    <p><b>Password:</b> admin123</p>
-    </div>
+        <!-- or -->
+        <div class="flex items-center mb-4 mt-4">
+            <div class="flex-1 border-t border-gray-500/50"></div>
+            <span class="px-4 text-gray-400">OR</span>
+            <div class="flex-1 border-t border-gray-500/50"></div>
+        </div>
+
+        <!-- credentials box -->
+        <div class="bg-gray-100 p-3 rounded text-sm text-gray-600">
+            <p><b>Username:</b> admin</p>
+            <p><b>Password:</b> admin123</p>
+        </div>
 
     </div>
-    
+
     <script src="script/sign-up.js"></script>
 </body>
 </html>
